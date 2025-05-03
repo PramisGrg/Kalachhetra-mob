@@ -1,8 +1,9 @@
-import {StyleSheet, Text} from 'react-native';
 import React from 'react';
+import {StyleSheet} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import MaxWidthContainer from '../../../layout/max-width-container';
 import SearchBar from './search-bar';
+import ArtCard from './art-card';
 
 const Explore = () => {
   return (
@@ -10,7 +11,7 @@ const Explore = () => {
       <SafeAreaView style={styles.container}>
         <MaxWidthContainer style={{gap: 10}}>
           <SearchBar />
-          <Text>Explore</Text>
+          <ArtCard />
         </MaxWidthContainer>
       </SafeAreaView>
     </SafeAreaProvider>
