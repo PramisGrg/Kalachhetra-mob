@@ -5,13 +5,31 @@ import Profile from '../screens/home/profile/index';
 import Message from '../screens/home/message';
 import Order from '../screens/home/order';
 import Notification from '../screens/home/notification';
+import {Bell, Mail, Search, ShoppingCart, User} from 'lucide-react-native';
 
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={() => ({
+      screenOptions={({route}) => ({
+        // eslint-disable-next-line react/no-unstable-nested-components
+        tabBarIcon: ({color, size}) => {
+          switch (route.name) {
+            case 'Explore':
+              return <Search color={color} size={size} />;
+            case 'Message':
+              return <Mail color={color} size={size} />;
+            case 'Order':
+              return <ShoppingCart color={color} size={size} />;
+            case 'Notification':
+              return <Bell color={color} size={size} />;
+            case 'Profile':
+              return <User color={color} size={size} />;
+            default:
+              return null;
+          }
+        },
         headerShown: false,
         tabBarActiveTintColor: '#ba4a03',
         tabBarInactiveTintColor: 'gray',
