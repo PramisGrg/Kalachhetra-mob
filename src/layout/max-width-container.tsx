@@ -12,6 +12,7 @@ const MaxWidthContainer = ({children, style}: MaxWidthContainerProps) => {
 
 const styles = StyleSheet.create({
   layoutContainer: {
+    flex: 1,
     width: '90%',
     marginHorizontal: 'auto',
   },

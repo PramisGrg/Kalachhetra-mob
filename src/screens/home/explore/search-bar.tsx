@@ -3,6 +3,10 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import {Search, SlidersHorizontal} from 'lucide-react-native';
 
 const SearchBar = () => {
+  const openSheet = () => {
+    console.log('I am openeed');
+  };
+
   return (
     <View style={styles.container}>
       <Search style={styles.icon} />
@@ -11,7 +15,10 @@ const SearchBar = () => {
         style={styles.input}
         placeholderTextColor="#999"
       />
-      <SlidersHorizontal style={styles.filterButton} />
+      <SlidersHorizontal
+        onPress={() => openSheet()}
+        style={styles.filterButton}
+      />
     </View>
   );
 };
@@ -22,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: 40,
+    height: 50,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: '#ccc',
