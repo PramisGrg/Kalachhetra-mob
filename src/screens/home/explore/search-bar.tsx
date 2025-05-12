@@ -1,25 +1,49 @@
-import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import React, {useCallback, useRef} from 'react';
+import {View, TextInput, Text, StyleSheet} from 'react-native';
 import {Search, SlidersHorizontal} from 'lucide-react-native';
+import {
+  BottomSheetModal,
+  BottomSheetView,
+  BottomSheetModalProvider,
+} from '@gorhom/bottom-sheet';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const SearchBar = () => {
-  const openSheet = () => {
-    console.log('I am openeed');
-  };
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <Search style={styles.icon} />
-      <TextInput
-        placeholder="Search Art"
-        style={styles.input}
-        placeholderTextColor="#999"
-      />
-      <SlidersHorizontal
-        onPress={() => openSheet()}
-        style={styles.filterButton}
-      />
-    </View>
+    <GestureHandlerRootView>
+      <BottomSheetModalProvider>
+        <View style={styles.container}>
+          <Search style={styles.icon} />
+          <TextInput
+            placeholder="Search Art"
+            style={styles.input}
+            placeholderTextColor="#999"
+          />
+          <SlidersHorizontal
+            onPress={handlePresentModalPress}
+            style={styles.filterButton}
+          />
+        </View>
+
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          onChange={handleSheetChanges}>
+          <BottomSheetView>
+            <Text>Awesome 🎉</Text>
+          </BottomSheetView>
+        </BottomSheetModal>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 };
 
@@ -38,7 +62,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 10,
-    elevation: 4,
+    // elevation: 4,
     paddingHorizontal: 1,
   },
   icon: {

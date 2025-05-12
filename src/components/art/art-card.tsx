@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: typography.fontWeight.bold,
-    fontSize: typography.fontSizes.lg,
+    fontSize: typography.fontSizes.md,
   },
 });
 

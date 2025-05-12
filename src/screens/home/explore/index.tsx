@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import ArtList from '../../../components/art/art-list';
 import MaxWidthContainer from '../../../layout/max-width-container';
 import SearchBar from './search-bar';
-import ArtList from '../../../components/art/art-list';
 
 const Explore = () => {
   return (
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    paddingTop: 10,
   },
 });
 
