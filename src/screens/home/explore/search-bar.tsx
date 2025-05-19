@@ -1,49 +1,57 @@
-import React, {useCallback, useRef} from 'react';
-import {View, TextInput, Text, StyleSheet} from 'react-native';
-import {Search, SlidersHorizontal} from 'lucide-react-native';
-import {
-  BottomSheetModal,
+import BottomSheet, {
+  BottomSheetBackdrop,
   BottomSheetView,
-  BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {Search, SlidersHorizontal} from 'lucide-react-native';
+import React, {useCallback, useMemo, useRef} from 'react';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 const SearchBar = () => {
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const sheetRef = useRef<BottomSheet>(null);
 
-  // callbacks
-  const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
-  }, []);
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
+  // variables
+  const snapPoints = useMemo(() => ['50%'], []);
+
+  const handleOpenPress = useCallback(() => {
+    sheetRef.current?.expand();
   }, []);
 
+  const renderBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={0}
+        opacity={0.1}
+      />
+    ),
+    [],
+  );
   return (
-    <GestureHandlerRootView>
-      <BottomSheetModalProvider>
-        <View style={styles.container}>
-          <Search style={styles.icon} />
-          <TextInput
-            placeholder="Search Art"
-            style={styles.input}
-            placeholderTextColor="#999"
-          />
-          <SlidersHorizontal
-            onPress={handlePresentModalPress}
-            style={styles.filterButton}
-          />
-        </View>
+    <>
+      <View style={styles.container}>
+        <Search style={styles.icon} />
+        <TextInput
+          placeholder="Search Art"
+          style={styles.input}
+          placeholderTextColor="#999"
+        />
+        <SlidersHorizontal
+          onPress={handleOpenPress}
+          style={styles.filterButton}
+        />
+      </View>
 
-        <BottomSheetModal
-          ref={bottomSheetModalRef}
-          onChange={handleSheetChanges}>
-          <BottomSheetView>
-            <Text>Awesome 🎉</Text>
-          </BottomSheetView>
-        </BottomSheetModal>
-      </BottomSheetModalProvider>
-    </GestureHandlerRootView>
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={snapPoints}
+        backdropComponent={renderBackdrop}
+        enablePanDownToClose={true}>
+        <BottomSheetView style={styles.contentContainer}>
+          <Text>Awesome 🔥</Text>
+        </BottomSheetView>
+      </BottomSheet>
+    </>
   );
 };
 
@@ -75,5 +83,9 @@ const styles = StyleSheet.create({
   filterButton: {
     padding: 4,
     marginHorizontal: 8,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
 });
