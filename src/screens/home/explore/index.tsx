@@ -2,16 +2,13 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ArtList from '../../../components/art/art-list';
-import MaxWidthContainer from '../../../layout/max-width-container';
-import SearchBar from './search-bar';
+import SearchBar from '../../../components/search-bar/search-bar';
 
 const Explore = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <MaxWidthContainer style={{gap: 10}}>
-        <SearchBar />
-        <ArtList />
-      </MaxWidthContainer>
+      <SearchBar />
+      <ArtList />
     </SafeAreaView>
   );
 };

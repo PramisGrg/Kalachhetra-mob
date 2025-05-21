@@ -13,7 +13,6 @@ function BottomTabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        // eslint-disable-next-line react/no-unstable-nested-components
         tabBarIcon: ({color, size}) => {
           switch (route.name) {
             case 'Explore':
