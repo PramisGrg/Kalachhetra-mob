@@ -10,7 +10,7 @@ function AppNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
-      <AppStack.Screen name="Main" component={BottomTabNavigator} />
+      <AppStack.Screen name="BottomTabs" component={BottomTabNavigator} />
       <AppStack.Screen name="SearchScreen" component={Search} />
     </AppStack.Navigator>
   );

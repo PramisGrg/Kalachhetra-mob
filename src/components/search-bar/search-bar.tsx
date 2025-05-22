@@ -16,8 +16,9 @@ const SearchBar = () => {
 
   const handleNext = () => {
     console.log('I am pramis gurung');
-    navigation.getParent()?.navigate('SearchScreen');
+    navigation.navigate('SearchScreen');
   };
+
   //   const sheetRef = useRef<BottomSheet>(null);
 
   //   // variables
