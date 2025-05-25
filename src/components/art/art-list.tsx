@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {useGetArtsQuery} from '../../services/tanstack-query/queries/artist/artist.query';

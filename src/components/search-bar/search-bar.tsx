@@ -1,7 +1,6 @@
 import {Search} from 'lucide-react-native';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-paper';
+import {StyleSheet, Text, View} from 'react-native';
 import MaxWidthContainer from '../../layout/max-width-container';
 import spacing from '../../theme/spacing';
 import {TouchableWithoutFeedback} from '@gorhom/bottom-sheet';
@@ -15,55 +14,18 @@ const SearchBar = () => {
   >();
 
   const handleNext = () => {
-    console.log('I am pramis gurung');
     navigation.navigate('SearchScreen');
   };
 
-  //   const sheetRef = useRef<BottomSheet>(null);
-
-  //   // variables
-  //   const snapPoints = useMemo(() => ['50%'], []);
-
-  //   const handleOpenPress = useCallback(() => {
-  //     sheetRef.current?.expand();
-  //   }, []);
-
-  //   const renderBackdrop = useCallback(
-  //     (props: any) => (
-  //       <BottomSheetBackdrop
-  //         {...props}
-  //         disappearsOnIndex={-1}
-  //         appearsOnIndex={0}
-  //         opacity={0.1}
-  //       />
-  //     ),
-  //     [],
-  //   );
   return (
-    <>
-      <TouchableWithoutFeedback onPress={() => handleNext()}>
-        <MaxWidthContainer>
-          <View style={styles.container}>
-            <Search style={styles.icon} />
-            <Text>Search your art</Text>
-          </View>
-        </MaxWidthContainer>
-      </TouchableWithoutFeedback>
-
-      {/* <SlidersHorizontal
-              onPress={handleOpenPress}
-              style={styles.filterButton}
-            /> */}
-      {/* <BottomSheet
-        ref={sheetRef}
-        snapPoints={snapPoints}
-        backdropComponent={renderBackdrop}
-        enablePanDownToClose={true}>
-        <BottomSheetView style={styles.contentContainer}>
-          <Text>Awesome 🔥</Text>
-        </BottomSheetView>
-      </BottomSheet> */}
-    </>
+    <TouchableWithoutFeedback onPress={() => handleNext()}>
+      <MaxWidthContainer>
+        <View style={styles.container}>
+          <Search style={styles.icon} />
+          <Text>Search your art</Text>
+        </View>
+      </MaxWidthContainer>
+    </TouchableWithoutFeedback>
   );
 };
 
