@@ -8,11 +8,13 @@ import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetView,
 } from '@gorhom/bottom-sheet';
-import spacing from '../../../theme/spacing';
+import {useTheme} from '@react-navigation/native';
+import {borderRadius, spacing} from '../../../theme';
 
 const Search = () => {
   const [focus, setFocus] = useState(false);
   const sheetRef = useRef<BottomSheet>(null);
+  const {colors} = useTheme();
 
   const snapPoints = useMemo(() => ['50%'], []);
 
@@ -35,13 +37,24 @@ const Search = () => {
   return (
     <SafeAreaView style={styles.container}>
       <MaxWidthContainer style={{paddingTop: 10}}>
-        <View style={[styles.inputWrapper, focus && {borderColor: 'black'}]}>
-          <SearchIcon />
-          <TextInput
-            onBlur={() => setFocus(false)}
-            onFocus={() => setFocus(true)}
-            placeholder="Search arts"
-          />
+        <View
+          style={[
+            styles.inputWrapper,
+            {borderColor: focus ? colors.secondary : colors.border},
+          ]}>
+          <View
+            style={{
+              flexDirection: 'row',
+              gap: spacing.sm,
+              alignItems: 'center',
+            }}>
+            <SearchIcon />
+            <TextInput
+              onBlur={() => setFocus(false)}
+              onFocus={() => setFocus(true)}
+              placeholder="Search arts"
+            />
+          </View>
           <SlidersHorizontal onPress={handleOpenPress} />
         </View>
       </MaxWidthContainer>
@@ -72,8 +85,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.md,
-    borderRadius: 12,
-    borderColor: '#D3D3D3',
+    borderRadius: borderRadius.lg,
   },
 });
 

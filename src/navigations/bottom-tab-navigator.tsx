@@ -6,10 +6,13 @@ import Message from '../screens/home/message';
 import Order from '../screens/home/order';
 import Notification from '../screens/home/notification';
 import {Bell, Mail, Search, ShoppingCart, User} from 'lucide-react-native';
+import {useTheme} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
+  const {colors} = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -30,8 +33,8 @@ function BottomTabNavigator() {
           }
         },
         headerShown: false,
-        tabBarActiveTintColor: '#ba4a03',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.border,
       })}>
       <Tab.Screen name="Explore" component={Explore} />
       <Tab.Screen name="Message" component={Message} />
