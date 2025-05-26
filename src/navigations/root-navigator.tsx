@@ -20,8 +20,6 @@ function RootNavigator() {
     },
   };
 
-  console.log(MyTheme);
-
   return (
     <NavigationContainer theme={MyTheme}>
       <RootStack.Navigator screenOptions={{headerShown: false}}>
