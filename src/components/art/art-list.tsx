@@ -4,6 +4,7 @@ import {useGetArtsQuery} from '../../services/tanstack-query/queries/artist/arti
 import spacing from '../../theme/spacing';
 import {SingleArt} from '../../types/art.types';
 import ArtCard from './art-card';
+import MaxWidthContainer from '../../layout/max-width-container';
 
 const ArtList = () => {
   const {data: arts} = useGetArtsQuery();
@@ -11,13 +12,15 @@ const ArtList = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={artsData}
-        keyExtractor={(item: SingleArt) => item._id}
-        renderItem={({item}) => <ArtCard item={item} />}
-        ItemSeparatorComponent={() => <View style={{height: spacing.lg}} />}
-        contentContainerStyle={{paddingBottom: 120}}
-      />
+      <MaxWidthContainer>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={artsData}
+          keyExtractor={(item: SingleArt) => item._id}
+          renderItem={({item}) => <ArtCard item={item} />}
+          ItemSeparatorComponent={() => <View style={{height: spacing.lg}} />}
+        />
+      </MaxWidthContainer>
     </View>
   );
 };

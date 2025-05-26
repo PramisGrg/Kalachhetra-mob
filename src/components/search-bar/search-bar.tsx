@@ -1,7 +1,6 @@
 import {Search} from 'lucide-react-native';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import MaxWidthContainer from '../../layout/max-width-container';
 import spacing from '../../theme/spacing';
 import {TouchableWithoutFeedback} from '@gorhom/bottom-sheet';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
@@ -19,12 +18,10 @@ const SearchBar = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => handleNext()}>
-      <MaxWidthContainer>
-        <View style={styles.container}>
-          <Search style={styles.icon} />
-          <Text>Search your art</Text>
-        </View>
-      </MaxWidthContainer>
+      <View style={styles.container}>
+        <Search style={styles.icon} />
+        <Text>Search your art</Text>
+      </View>
     </TouchableWithoutFeedback>
   );
 };
@@ -36,6 +33,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '90%',
+    marginHorizontal: 'auto',
     gap: spacing.sm,
     height: 60,
     borderWidth: 1,

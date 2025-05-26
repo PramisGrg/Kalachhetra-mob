@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ArtList from '../../../components/art/art-list';
 import SearchBar from '../../../components/search-bar/search-bar';
+import {spacing} from '../../../theme';
 
 const Explore = () => {
   return (
@@ -16,7 +17,7 @@ const Explore = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    gap: spacing.md,
     backgroundColor: 'white',
     paddingTop: 10,
   },

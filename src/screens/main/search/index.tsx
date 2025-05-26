@@ -16,7 +16,7 @@ const Search = () => {
   const sheetRef = useRef<BottomSheet>(null);
   const {colors} = useTheme();
 
-  const snapPoints = useMemo(() => ['50%'], []);
+  const snapPoints = useMemo(() => ['70%'], []);
 
   const handleOpenPress = useCallback(() => {
     sheetRef.current?.expand();

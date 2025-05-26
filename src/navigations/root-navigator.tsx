@@ -4,12 +4,6 @@ import AppNavigator from './app-navigator';
 import AuthNavigator from './auth-navigator';
 import {useState} from 'react';
 
-type CustomTheme = {
-  colors: typeof DefaultTheme.colors & {
-    secondary: string;
-  };
-};
-
 const RootStack = createStackNavigator();
 
 function RootNavigator() {
@@ -19,6 +13,7 @@ function RootNavigator() {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
+      background: '#ffffff',
       primary: '#ba4a03',
       border: '#cad5e2',
       secondary: '#020618',
