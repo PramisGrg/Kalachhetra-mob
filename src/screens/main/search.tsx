@@ -10,6 +10,7 @@ import BottomSheet, {
 } from '@gorhom/bottom-sheet';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {borderRadius, spacing} from '../../theme';
+import {CustomButton} from '../../components/ui/button';
 
 const Search = () => {
   const navigation = useNavigation();
@@ -61,12 +62,13 @@ const Search = () => {
           <SlidersHorizontal onPress={handleOpenPress} />
         </View>
         <View>
-          <Button
+          {/* <Button
             onPress={() => {
               navigation.navigate('OnboardingScreen');
             }}
             title="Go"
-          />
+          /> */}
+          <CustomButton variant={'secondary'}>Click</CustomButton>
         </View>
       </MaxWidthContainer>
 
