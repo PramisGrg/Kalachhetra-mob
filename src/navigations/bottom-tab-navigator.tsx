@@ -6,13 +6,11 @@ import Message from '../screens/home/message';
 import Order from '../screens/home/order';
 import Notification from '../screens/home/notification';
 import {Bell, Mail, Search, ShoppingCart, User} from 'lucide-react-native';
-import {useTheme} from '@react-navigation/native';
+import {colors} from '../theme';
 
 const Tab = createBottomTabNavigator();
 
 function BottomTabNavigator() {
-  const {colors} = useTheme();
-
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({

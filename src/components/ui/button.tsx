@@ -1,120 +1,97 @@
 import React from 'react';
 import {Pressable, Text, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {borderRadius, colors, spacing, typography} from '../../theme';
 
-type Variant =
-  | 'default'
-  | 'destructive'
-  | 'outline'
-  | 'secondary'
-  | 'ghost'
-  | 'link';
-type Size = 'default' | 'sm' | 'lg' | 'icon';
-
-interface ButtonProps {
-  variant?: Variant;
-  size?: Size;
-  children: React.ReactNode;
-  disabled?: boolean;
-  onPress?: () => void;
+type ButtonProps = {
+  title: string;
+  onPress: () => void;
+  variant?: 'default' | 'outline' | 'ghost';
+  size?: 'default' | 'lg';
   style?: ViewStyle;
-  textStyle?: TextStyle;
-}
-
-const variantStyles: Record<Variant, ViewStyle> = {
-  default: {
-    backgroundColor: '#3b82f6', // primary
-  },
-  destructive: {
-    backgroundColor: '#ef4444', // red-500
-  },
-  outline: {
-    borderWidth: 1,
-    borderColor: '#d1d5db', // gray-300
-    backgroundColor: '#ffffff',
-  },
-  secondary: {
-    backgroundColor: '#e5e7eb', // gray-200
-  },
-  ghost: {
-    backgroundColor: 'transparent',
-  },
-  link: {
-    backgroundColor: 'transparent',
-  },
+  disabled?: boolean;
 };
 
-const sizeStyles: Record<Size, ViewStyle> = {
-  default: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 6,
-  },
-  sm: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 6,
-  },
-  lg: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 6,
-  },
-  icon: {
-    width: 36,
-    height: 36,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 18,
-  },
-};
-
-const textStyles: Record<Variant, TextStyle> = {
-  default: {color: '#ffffff'},
-  destructive: {color: '#ffffff'},
-  outline: {color: '#111827'},
-  secondary: {color: '#111827'},
-  ghost: {color: '#111827'},
-  link: {color: '#3b82f6', textDecorationLine: 'underline'},
-};
-
-export const CustomButton: React.FC<ButtonProps> = ({
+const CustomButton = ({
+  title,
+  onPress,
   variant = 'default',
   size = 'default',
-  children,
   disabled = false,
-  onPress,
   style,
-  textStyle,
-}) => {
+}: ButtonProps) => {
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled}
-      style={[
-        styles.base,
-        variantStyles[variant],
-        sizeStyles[size],
-        disabled && styles.disabled,
+      style={({pressed}) => [
         style,
+        styles.base,
+        variantSizeStyles[size],
+        variantStyles[variant],
+        pressed && styles.pressed,
       ]}>
-      <Text style={[styles.textBase, textStyles[variant], textStyle]}>
-        {children}
-      </Text>
+      <Text style={[styles.text, variantTextStyles[variant]]}>{title}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   base: {
-    flexDirection: 'row',
+    borderRadius: borderRadius.full,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    shadowOffset: {width: 0, height: 2},
+    elevation: 2,
   },
-  textBase: {
-    fontSize: 14,
-    fontWeight: '500',
+  pressed: {
+    opacity: 0.85,
   },
-  disabled: {
-    opacity: 0.5,
+  text: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: typography.fontWeight.bold,
   },
 });
+
+const variantStyles: Record<string, ViewStyle> = {
+  default: {
+    backgroundColor: colors.primary,
+  },
+  outline: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  ghost: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+};
+
+const variantTextStyles: Record<string, TextStyle> = {
+  default: {
+    color: 'white',
+  },
+  outline: {
+    color: colors.primary,
+  },
+  ghost: {
+    color: 'white',
+  },
+};
+
+const variantSizeStyles: Record<string, TextStyle> = {
+  default: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+  },
+  lg: {
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.xl,
+  },
+};
+
+export default CustomButton;

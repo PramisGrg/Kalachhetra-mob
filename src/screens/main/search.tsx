@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
 import React, {useCallback, useMemo, useRef, useState} from 'react';
 import MaxWidthContainer from '../../layout/max-width-container';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -8,17 +8,14 @@ import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetView,
 } from '@gorhom/bottom-sheet';
-import {useNavigation, useTheme} from '@react-navigation/native';
-import {borderRadius, spacing} from '../../theme';
-import {CustomButton} from '../../components/ui/button';
+import {useNavigation} from '@react-navigation/native';
+import {borderRadius, colors, spacing} from '../../theme';
 
 const Search = () => {
   const navigation = useNavigation();
   const [focus, setFocus] = useState(false);
 
   const sheetRef = useRef<BottomSheet>(null);
-
-  const {colors} = useTheme();
 
   const snapPoints = useMemo(() => ['70%'], []);
 
@@ -68,7 +65,7 @@ const Search = () => {
             }}
             title="Go"
           /> */}
-          <CustomButton variant={'secondary'}>Click</CustomButton>
+          {/* <CustomButton variant={'secondary'}>Click</CustomButton> */}
         </View>
       </MaxWidthContainer>
 
