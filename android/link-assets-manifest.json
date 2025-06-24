@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Fanwood Italic.otf",
+      "sha1": "84372867f2e794abc42aa21f735f5c00f186e7f0"
+    },
+    {
+      "path": "src/assets/fonts/Fanwood Text Italic.otf",
+      "sha1": "409cb9fe88b0b820cd6e070510496547cc380747"
+    },
+    {
+      "path": "src/assets/fonts/Fanwood Text.otf",
+      "sha1": "809eb7582fd80adb5c8973a1e550547b9f4875ad"
+    },
+    {
+      "path": "src/assets/fonts/Fanwood.otf",
+      "sha1": "fe10e2de15746534eee7d174902be51d862b2f70"
+    }
+  ]
+}
