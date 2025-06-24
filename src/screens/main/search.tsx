@@ -86,7 +86,7 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
   },
   inputWrapper: {
     flexDirection: 'row',

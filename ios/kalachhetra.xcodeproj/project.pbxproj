@@ -12,6 +12,10 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		76636DEDF8164D624576A057 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C455BEC96F1C4ACE948951A9 /* Fanwood Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73CD3248EABC49FF951D0703 /* Fanwood Italic.otf */; };
+		454033FC90A948CF96B870E1 /* Fanwood Text Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E231364C0A1E44829863C95D /* Fanwood Text Italic.otf */; };
+		03FE2D2A38844398B8183FC3 /* Fanwood Text.otf in Resources */ = {isa = PBXBuildFile; fileRef = 542FE59C17764428A61D93D4 /* Fanwood Text.otf */; };
+		291D4380669441869ED8C4A2 /* Fanwood.otf in Resources */ = {isa = PBXBuildFile; fileRef = A808326679A54B638C1807FC /* Fanwood.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = kalachhetra/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kalachhetra/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		73CD3248EABC49FF951D0703 /* Fanwood Italic.otf */ = {isa = PBXFileReference; name = "Fanwood Italic.otf"; path = "../src/assets/fonts/Fanwood Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E231364C0A1E44829863C95D /* Fanwood Text Italic.otf */ = {isa = PBXFileReference; name = "Fanwood Text Italic.otf"; path = "../src/assets/fonts/Fanwood Text Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		542FE59C17764428A61D93D4 /* Fanwood Text.otf */ = {isa = PBXFileReference; name = "Fanwood Text.otf"; path = "../src/assets/fonts/Fanwood Text.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A808326679A54B638C1807FC /* Fanwood.otf */ = {isa = PBXFileReference; name = "Fanwood.otf"; path = "../src/assets/fonts/Fanwood.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				F64A736605494C9C926EB509 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -97,6 +106,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		F64A736605494C9C926EB509 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				73CD3248EABC49FF951D0703 /* Fanwood Italic.otf */,
+				E231364C0A1E44829863C95D /* Fanwood Text Italic.otf */,
+				542FE59C17764428A61D93D4 /* Fanwood Text.otf */,
+				A808326679A54B638C1807FC /* Fanwood.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -161,6 +182,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				76636DEDF8164D624576A057 /* PrivacyInfo.xcprivacy in Resources */,
+				C455BEC96F1C4ACE948951A9 /* Fanwood Italic.otf in Resources */,
+				454033FC90A948CF96B870E1 /* Fanwood Text Italic.otf in Resources */,
+				03FE2D2A38844398B8183FC3 /* Fanwood Text.otf in Resources */,
+				291D4380669441869ED8C4A2 /* Fanwood.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

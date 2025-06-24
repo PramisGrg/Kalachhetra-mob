@@ -5,13 +5,10 @@ import {spacing, typography} from '../../theme';
 import MaxWidthContainer from '../../layout/max-width-container';
 import CustomButton from '../../components/ui/button';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {AuthNavigationType} from '../../types/navigation.types';
-
-type NavigationProp = StackNavigationProp<AuthNavigationType>;
+import {AuthNavigationProp} from '../../types/navigation.types';
 
 const Onbaroding = () => {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation<AuthNavigationProp>();
 
   return (
     <ImageBackground
