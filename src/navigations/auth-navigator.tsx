@@ -11,6 +11,7 @@ function AuthNavigator() {
     <AuthStack.Navigator
       screenOptions={{
         headerShown: false,
+        animation: 'slide_from_right',
       }}>
       <AuthStack.Screen name="OnboardingScreen" component={Onbaroding} />
       <AuthStack.Screen name="LoginScreen" component={Login} />

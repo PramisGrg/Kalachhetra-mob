@@ -51,10 +51,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    marginTop: '30%',
+    marginTop: '10%',
   },
   titleText: {
-    fontSize: 70,
+    fontSize: 60,
     color: 'white',
   },
   text: {

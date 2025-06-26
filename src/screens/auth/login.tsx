@@ -1,21 +1,21 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {colors, spacing, typography} from '../../theme';
-import {ArrowLeft} from 'lucide-react-native';
-import MaxWidthContainer from '../../layout/max-width-container';
-import {useNavigation} from '@react-navigation/native';
-import CustomInput from '../../components/ui/input';
-import CustomButton from '../../components/ui/button';
-import {AuthNavigationProp} from '../../types/navigation.types';
-import {Controller, useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
+import {useNavigation} from '@react-navigation/native';
+import {ArrowLeft} from 'lucide-react-native';
+import React from 'react';
+import {useForm} from 'react-hook-form';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import CustomButton from '../../components/ui/button';
+import FormField from '../../components/ui/FormField';
+import MaxWidthContainer from '../../layout/max-width-container';
 import {loginSchema, TLoginSchema} from '../../schemas/auth/login.schema';
+import {colors, spacing, typography} from '../../theme';
+import {AuthNavigationProp} from '../../types/navigation.types';
 
 const Login = () => {
   const navigation = useNavigation<AuthNavigationProp>();
 
-  const {handleSubmit, control} = useForm<TLoginSchema>({
+  const form = useForm<TLoginSchema>({
     resolver: zodResolver(loginSchema),
   });
 
@@ -35,37 +35,19 @@ const Login = () => {
 
           <Text style={styles.loginText}>Login To Kalachhetra</Text>
 
-          <Controller
-            control={control}
+          <FormField
+            form={form}
             name="email"
-            render={({field: {onChange, value}, fieldState: {error}}) => {
-              return (
-                <CustomInput
-                  placeholder="Email"
-                  value={value}
-                  onChangeText={onChange}
-                  error={error?.message}
-                />
-              );
-            }}
+            placeholder="Email"
+            label="Email Address"
           />
 
-          <Controller
-            control={control}
+          <FormField
+            form={form}
             name="password"
-            render={({field: {onChange, value}}) => {
-              return (
-                <View style={{gap: spacing.sm}}>
-                  <Text>Password</Text>
-                  <CustomInput
-                    value={value}
-                    onChangeText={onChange}
-                    secureTextEntry
-                    placeholder="Password"
-                  />
-                </View>
-              );
-            }}
+            placeholder="Password"
+            label="Password"
+            secureTextEntry={true}
           />
 
           <View style={{justifyContent: 'center', flexDirection: 'row'}}>
@@ -78,7 +60,7 @@ const Login = () => {
             </Pressable>
           </View>
 
-          <CustomButton onPress={handleSubmit(onSubmit)} title="Login" />
+          <CustomButton onPress={form.handleSubmit(onSubmit)} title="Login" />
         </View>
       </MaxWidthContainer>
     </SafeAreaView>
